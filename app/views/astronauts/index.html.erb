@@ -6,8 +6,17 @@
     <p>Age: <%= astronaut.age %></p>
     <p>Job: <%= astronaut.job %></p>
   </section>
+<% end %>
 
-  <section id="stats">
-    <p>Avergage Astronaut Age: <%= @astronauts.average_age %></p>
+<section id="stats">
+  <p>Avergage Astronaut Age: <%= @astronauts.average_age %></p>
+</section>
+
+<% @astronauts.each do |astronaut| %>
+  <section id="missions_list_<%= astronaut.id %>">
+    <% astronaut.missions.each do |mission| %>
+      <p>Mission: <%= mission.title %></p>
+      <p>Time In Space: <%= mission.time_in_space %></p>
+    <% end %>
   </section>
 <% end %>
